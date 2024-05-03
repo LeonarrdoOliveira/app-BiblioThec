@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Listagem de Livros para Doação - BiblioTech</title>
+</head>
+
+<body>
+  <h1>Listagem de Livros para Doação</h1>
+  <table border="1">
+    <tr>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>Editora</th>
+      <th>Número de Páginas</th>
+    </tr>
+    {% for livro in livros_doacao %}
+    <tr>
+      <td>{{ livro.titulo }}</td>
+      <td>{{ livro.autor }}</td>
+      <td>{{ livro.editora }}</td>
+      <td>{{ livro.numero_paginas }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Suspender Usuário</title>
+</head>
+
+<body>
+  <h1>Suspender Usuário Temporariamente</h1>
+  <form action="/suspender_usuario/{{ user_id }}" method="post">
+    <label for="dias">Dias de Suspensão:</label><br>
+    <input type="number" id="dias" name="dias"><br><br>
+    <input type="submit" value="Suspender Usuário">
+  </form>
+</body>
+
+</html>

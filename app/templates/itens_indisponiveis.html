@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Itens Indisponíveis</title>
+</head>
+
+<body>
+  <h1>Itens Indisponíveis</h1>
+  <ul>
+    {% for livro in itens_indisponiveis %}
+    <li>{{ livro.titulo }}</li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>

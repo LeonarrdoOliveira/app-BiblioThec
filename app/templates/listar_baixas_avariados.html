@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Listagem de Baixas de Materiais Avariados - BiblioTech</title>
+</head>
+
+<body>
+  <h1>Listagem de Baixas de Materiais Avariados</h1>
+  <table border="1">
+    <tr>
+      <th>Livro</th>
+      <th>Data de Baixa</th>
+    </tr>
+    {% for baixa in baixas %}
+    <tr>
+      <td>{{ baixa.livro.titulo }}</td>
+      <td>{{ baixa.data_baixa.strftime('%d/%m/%Y %H:%M') }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+
+</html>

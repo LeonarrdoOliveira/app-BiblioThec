@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Listagem de Avisos - BiblioTech</title>
+</head>
+
+<body>
+  <h1>Listagem de Avisos</h1>
+  <ul>
+    {% for aviso in avisos %}
+    <li><strong>{{ aviso.titulo }}</strong>: {{ aviso.mensagem }}</li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>

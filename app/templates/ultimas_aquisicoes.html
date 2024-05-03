@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Últimas Aquisições</title>
+</head>
+
+<body>
+  <h1>Últimas Aquisições</h1>
+  <ul>
+    {% for livro in ultimas_aquisicoes %}
+    <li>{{ livro.titulo }} - Adquirido em {{ livro.data_aquisicao }}</li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>

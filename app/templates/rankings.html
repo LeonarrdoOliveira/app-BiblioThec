@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rankings</title>
+</head>
+
+<body>
+  <h1>Rankings</h1>
+
+  <h2>Livros Mais Lidos</h2>
+  <ol>
+    {% for livro in livros_mais_lidos %}
+    <li>{{ livro.titulo }} - {{ livro.numero_emprestimos }} empréstimos</li>
+    {% endfor %}
+  </ol>
+
+  <h2>Temas Mais Procurados</h2>
+  <ol>
+    {% for livro in temas_mais_procurados %}
+    <li>{{ livro.tema }} - {{ livro.count }} vezes</li>
+    {% endfor %}
+  </ol>
+</body>
+
+</html>

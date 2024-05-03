@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Livros para Doação</title>
+</head>
+
+<body>
+  <h1>Livros para Doação</h1>
+  <ul>
+    {% for livro in livros_para_doacao %}
+    <li>{{ livro.titulo }} - {{ livro.autor }} - {{ livro.editora }}</li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>

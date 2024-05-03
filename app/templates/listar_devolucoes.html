@@ -1,0 +1,29 @@
+<!-- listar_devolucoes.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Listagem de Devoluções - BiblioTech</title>
+</head>
+
+<body>
+  <h1>Listagem de Devoluções</h1>
+  <table border="1">
+    <tr>
+      <th>Livro</th>
+      <th>Usuário</th>
+      <th>Data de Empréstimo</th>
+      <th>Data de Devolução</th>
+    </tr>
+    {% for devolucao in devolucoes %}
+    <tr>
+      <td>{{ devolucao.livro.titulo }}</td>
+      <td>{{ devolucao.usuario.nome }}</td>
+      <td>{{ devolucao.data_emprestimo.strftime('%d/%m/%Y %H:%M') }}</td>
+      <td>{{ devolucao.data_devolucao.strftime('%d/%m/%Y %H:%M') }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+
+</html>
