@@ -1,3 +1,4 @@
+from flask import Flask
 from flask import render_template, request, redirect, url_for, jsonify, send_file
 from app import app, db
 from app.models import Usuario, Livro, Emprestimo, Aviso, EventoLeitura, Funcionario, Reserva, PrazoReserva, LivroDoacao

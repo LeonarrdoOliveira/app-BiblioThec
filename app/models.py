@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from datetime import datetime
+from app import db
 
 class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,8 +18,6 @@ class Livro(db.Model):
     num_paginas = db.Column(db.Integer)
     categoria = db.Column(db.String(100))
 
-from datetime import datetime  # Adicione esta linha para corrigir o erro
-
 class Emprestimo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
@@ -30,9 +28,6 @@ class Emprestimo(db.Model):
     usuario = db.relationship('Usuario', backref=db.backref('emprestimos', lazy=True))
     livro = db.relationship('Livro', backref=db.backref('emprestimos', lazy=True))
 
-
-from app import db
-
 class MaterialAvariado(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(100), nullable=False)
@@ -41,10 +36,6 @@ class MaterialAvariado(db.Model):
 
     def __repr__(self):
         return f"MaterialAvariado('{self.titulo}', '{self.data_avaria}')"
-
-# No arquivo app/models.py
-
-from app import db
 
 class PedidoRecurso(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -56,8 +47,6 @@ class PedidoRecurso(db.Model):
     def __repr__(self):
         return f"PedidoRecurso('{self.titulo}', '{self.descricao}', '{self.data_pedido}', '{self.status}')"
 
-from app import db
-
 class Aviso(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(100), nullable=False)
@@ -65,8 +54,6 @@ class Aviso(db.Model):
 
     def __repr__(self):
         return f"Aviso('{self.titulo}', '{self.conteudo}')"
-
-from app import db
 
 class LivroDoacao(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -78,8 +65,6 @@ class LivroDoacao(db.Model):
     def __repr__(self):
         return f"LivroDoacao('{self.titulo}', '{self.autor}', '{self.editora}', '{self.status}')"
 
-from app import db
-
 class Reserva(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
@@ -88,8 +73,6 @@ class Reserva(db.Model):
 
     def __repr__(self):
         return f"Reserva('{self.usuario_id}', '{self.livro_id}', '{self.data_reserva}')"
-
-from app import db
 
 class UsuarioLeitor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -104,6 +87,8 @@ class UsuarioLeitor(db.Model):
         return f"UsuarioLeitor('{self.nome}', '{self.cpf}', '{self.email}')"
 
 from app.models import Funcionario
+from flask import app, jsonify
+from app import app
 
 @app.route('/excluir_funcionario/<int:user_id>', methods=['POST'])
 def excluir_funcionario(user_id):
@@ -116,16 +101,12 @@ def excluir_funcionario(user_id):
     
     return jsonify({'message': f'Funcionário {funcionario.nome} excluído com sucesso'}), 200
 
-from app import db
-
 class PrazoReserva(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     prazo = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return f"PrazoReserva('{self.prazo}')"
-
-from app import db
 
 class EventoLeitura(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -135,7 +116,6 @@ class EventoLeitura(db.Model):
 
     def __repr__(self):
         return f"EventoLeitura('{self.titulo}', '{self.descricao}', '{self.data}')"
-
 
 #Gerar imagens e QRCode para carteirinhas
 
